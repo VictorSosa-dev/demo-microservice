@@ -9,7 +9,8 @@ import com.microservice.store.shopping.model.Customer;
 
 @FeignClient(name = "customer-service", url = "http://localhost:8092", fallback = CustomerHystrixFallbackFactory.class)
 public interface CustomerClient {
-
+	
+	
 	@GetMapping(value = "/customers/{id}")
 	public ResponseEntity<Customer> getCustomer(@PathVariable("id") long id);
 }
