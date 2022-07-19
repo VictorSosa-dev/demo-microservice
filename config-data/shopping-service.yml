@@ -46,22 +46,12 @@ logging:
   pattern:
     console: "%d{yyyy-MM-dd HH:mm:ss} ${LOG_LEVEL_PATTERN:-%5p} %m%n"
 
-Feign:
-  hystrix:
-    enabled: true
-    dashboard:
-    proxy-stream-allow-list: "*"
+hystrix:
+  dashboard:
+    proxyStreamAllowList: "*"
+
 management:
   endpoints:
-    health:
-      enable: true
-      show-details: always
     web:
-      cors:
-        allowed-origins: true
       exposure:
-        include: "*"
-      base-path: /actuator
-    jmx:
-      exposure:
-        include: "*"
+        include: hystrix.stream
