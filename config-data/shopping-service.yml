@@ -53,6 +53,15 @@ Feign:
     proxy-stream-allow-list: "*"
 management:
   endpoints:
+    health:
+      enable: true
+      show-details: always
     web:
+      cors:
+        allowed-origins: true
+      exposure:
+        include: "*"
+      base-path: /actuator
+    jmx:
       exposure:
         include: "*"
