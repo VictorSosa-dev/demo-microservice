@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.microservice.store.shopping.model.Product;
 
-@FeignClient(name = "product-service", url = "http://localhost:8091")
+@FeignClient(name = "product-service")
 @RequestMapping (value = "/products")
 public interface ProductClient {
 	
