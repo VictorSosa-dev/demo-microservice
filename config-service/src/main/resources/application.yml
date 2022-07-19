@@ -5,8 +5,9 @@ spring:
     config:
       server:
         git:
-          default-label: 02-Config
           uri: https://github.com/VictorSosa-dev/demo-microservice
+          default-label: 02-Config
+          skipSslValidation: true
           search-paths: config-data
   application:
     name: config-service
