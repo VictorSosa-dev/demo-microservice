@@ -5,6 +5,8 @@ import lombok.Data;
 import javax.persistence.*;
 import javax.validation.constraints.Positive;
 
+import com.microservice.store.shopping.model.Product;
+
 @Entity
 @Data
 @Table(name = "tbl_invoce_items")
@@ -22,6 +24,9 @@ public class InvoiceItem {
 
 	@Transient
 	private Double subTotal;
+	
+	@Transient
+	private Product product;
 
 	public Double getSubTotal() {
 		if (this.price > 0 && this.quantity > 0) {
