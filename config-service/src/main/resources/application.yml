@@ -6,7 +6,7 @@ spring:
       server:
         git:
           uri: https://github.com/VictorSosa-dev/demo-microservice
-          default-label: 05-hystrix
+          default-label: 06-gateway
           skipSslValidation: true
           search-paths: config-data
   application:
