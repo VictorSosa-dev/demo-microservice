@@ -2,7 +2,6 @@ package com.microservice.store.shopping.controller;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.microservice.store.shopping.client.CustomerFallback;
 import com.microservice.store.shopping.entity.Invoice;
 import com.microservice.store.shopping.service.InvoiceService;
 
@@ -117,7 +116,6 @@ public class InvoiceController {
         return jsonString;
     }
     
-    @GetMapping(value = "/{id}")
     public ResponseEntity<Invoice> fallBackCreateInvoice(@PathVariable("id") long id, RuntimeException exception) {
 		return new ResponseEntity("El usuario: "+ id + "no esta en el sistema", HttpStatus.OK);	
     }
