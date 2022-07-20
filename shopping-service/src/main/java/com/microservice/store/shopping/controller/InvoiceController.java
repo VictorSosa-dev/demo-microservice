@@ -2,9 +2,11 @@ package com.microservice.store.shopping.controller;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.microservice.store.shopping.client.CustomerFallback;
 import com.microservice.store.shopping.entity.Invoice;
 import com.microservice.store.shopping.service.InvoiceService;
 
+import io.github.resilience4j.circuitbreaker.annotation.CircuitBreaker;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -25,8 +27,8 @@ import java.util.stream.Collectors;
 public class InvoiceController {
 
     @Autowired
-    InvoiceService invoiceService;
-
+    private InvoiceService invoiceService;
+    
     // -------------------Retrieve All Invoices--------------------------------------------
     @GetMapping
     public ResponseEntity<List<Invoice>> listAllInvoices() {
@@ -38,6 +40,9 @@ public class InvoiceController {
     }
 
     // -------------------Retrieve Single Invoice------------------------------------------
+    
+    
+    @CircuitBreaker(name = "customersCB",fallbackMethod = "fallBackGetInvoice")
     @GetMapping(value = "/{id}")
     public ResponseEntity<Invoice> getInvoice(@PathVariable("id") long id) {
         log.info("Fetching Invoice with id {}", id);
@@ -48,8 +53,9 @@ public class InvoiceController {
         }
         return  ResponseEntity.ok(invoice);
     }
-
+    
     // -------------------Create a Invoice-------------------------------------------
+    @CircuitBreaker(name = "productsCB",fallbackMethod = "fallBackCreateInvoice")
     @PostMapping
     public ResponseEntity<Invoice> createInvoice(@Valid @RequestBody Invoice invoice, BindingResult result) {
         log.info("Creating Invoice : {}", invoice);
@@ -110,4 +116,10 @@ public class InvoiceController {
         }
         return jsonString;
     }
+    
+    @GetMapping(value = "/{id}")
+    public ResponseEntity<Invoice> fallBackCreateInvoice(@PathVariable("id") long id, RuntimeException exception) {
+		return new ResponseEntity("El usuario: "+ id + "no esta en el sistema", HttpStatus.OK);	
+    }
+    
 }

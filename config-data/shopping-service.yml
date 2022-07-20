@@ -47,9 +47,7 @@ logging:
   pattern:
     console: "%d{yyyy-MM-dd HH:mm:ss} ${LOG_LEVEL_PATTERN:-%5p} %m%n"
 
-feign:
-  hystrix:
-    enabled: true
+#Actuator
 management:
   security:
     enabled: false
@@ -57,3 +55,36 @@ management:
     web:
       exposure:
         include: "*"
+#Resilience
+resilience4j.circuitbreaker:
+    instances:
+        customersCB:
+            registerHealthIndicator: true
+            slidingWindowSize: 10
+            permittedNumberOfCallsInHalfOpenState: 3
+            slidingWindowType: TIME_BASED
+            minimumNumberOfCalls: 4
+            waitDurationInOpenState: 5s
+            failureRateThreshold: 50
+            eventConsumerBufferSize: 10
+            recordFailurePredicate: io.github.robwin.exception.RecordFailurePredicate
+        productsCB:
+            registerHealthIndicator: true
+            slidingWindowSize: 10
+            permittedNumberOfCallsInHalfOpenState: 3
+            slidingWindowType: TIME_BASED
+            minimumNumberOfCalls: 4
+            waitDurationInOpenState: 5s
+            failureRateThreshold: 50
+            eventConsumerBufferSize: 10
+            recordFailurePredicate: io.github.robwin.exception.RecordFailurePredicate
+        todosCB:
+            registerHealthIndicator: true
+            slidingWindowSize: 10
+            permittedNumberOfCallsInHalfOpenState: 3
+            slidingWindowType: TIME_BASED
+            minimumNumberOfCalls: 4
+            waitDurationInOpenState: 5s
+            failureRateThreshold: 50
+            eventConsumerBufferSize: 10
+            recordFailurePredicate: io.github.robwin.exception.RecordFailurePredicate
