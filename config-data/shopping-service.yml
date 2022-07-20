@@ -1,6 +1,9 @@
 #Application Configuration
 server:
   port: 8093
+  error:
+    include-message: always
+    include-binding-errors: always
 
 #Eureka Configuration
 eureka:
@@ -46,7 +49,7 @@ logging:
   pattern:
     console: "%d{yyyy-MM-dd HH:mm:ss} ${LOG_LEVEL_PATTERN:-%5p} %m%n"
 
-feign:
+Feign:
   hystrix:
     enabled: true
 management:

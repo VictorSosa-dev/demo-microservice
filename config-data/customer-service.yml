@@ -1,6 +1,9 @@
 #Application Configuration
 server:
   port: 8092
+  error:
+    include-message: always
+    include-binding-errors: always
 
 #Eureka Configuration
 eureka:
