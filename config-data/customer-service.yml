@@ -1,5 +1,8 @@
 server:
   port: ${PORT:${SERVER_PORT:0}}
+  error:
+    include-message: always
+    include-binding-errors: always
 eureka:
   client:
     fetch-registry: true
