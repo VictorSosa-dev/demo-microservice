@@ -49,11 +49,13 @@ logging:
   pattern:
     console: "%d{yyyy-MM-dd HH:mm:ss} ${LOG_LEVEL_PATTERN:-%5p} %m%n"
 
-Feign:
-  hystrix:
+feign:
+  circuitbreaker:
     enabled: true
-management:
-  endpoints:
-    web:
-      exposure:
-        include: "*"
+    alphanumeric-ids:
+      enabled: true
+resilience4j:
+  circuitbreaker:
+    instance:
+      CustomerClientgetCustomer:
+        minimumNumberOfCalls: 4
