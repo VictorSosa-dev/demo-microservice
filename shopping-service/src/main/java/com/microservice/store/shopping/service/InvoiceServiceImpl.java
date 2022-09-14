@@ -28,7 +28,6 @@ public class InvoiceServiceImpl implements InvoiceService {
 	InvoiceItemsRepository invoiceItemsRepository;
 	@Autowired
 	CustomerClient customerClient;
-
 	@Autowired
 	ProductClient productClient;
 
@@ -79,17 +78,17 @@ public class InvoiceServiceImpl implements InvoiceService {
 	@Override
 	public Invoice getInvoice(Long id) {
 
-		Invoice invoice = invoiceRepository.findById(id).orElse(null);
-		if (null != invoice) {
-			Customer customer = customerClient.getCustomer(invoice.getCustomerId()).getBody();
-			invoice.setCustomer(customer);
-			List<InvoiceItem> listItem = invoice.getItems().stream().map(invoiceItem -> {
+		Invoice invoiceDB = invoiceRepository.findById(id).orElse(null);
+		if (null != invoiceDB) {
+			Customer customer = customerClient.getCustomer(invoiceDB.getCustomerId()).getBody();
+			invoiceDB.setCustomer(customer);
+			List<InvoiceItem> listItem = invoiceDB.getItems().stream().map(invoiceItem -> {
 				Product product = productClient.getProduct(invoiceItem.getProductId()).getBody();
 				invoiceItem.setProduct(product);
 				return invoiceItem;
 			}).collect(Collectors.toList());
-			invoice.setItems(listItem);
+			invoiceDB.setItems(listItem);
 		}
-		return invoice;
+		return invoiceDB;
 	}
 }

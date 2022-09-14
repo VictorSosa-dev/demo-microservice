@@ -1,4 +1,4 @@
-package com.microservice.store.shopping.entity;
+ package com.microservice.store.shopping.entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.microservice.store.shopping.model.Customer;
