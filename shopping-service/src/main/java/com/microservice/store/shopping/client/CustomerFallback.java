@@ -6,7 +6,7 @@ import org.springframework.stereotype.Component;
 import com.microservice.store.shopping.model.Customer;
 
 @Component
-public class CustomerHystrixFallbackFactory implements CustomerClient {
+public class CustomerFallback implements CustomerClient {
 
 	@Override
 	public ResponseEntity<Customer> getCustomer(long id) {

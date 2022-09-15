@@ -48,8 +48,15 @@ logging:
     console: "%d{yyyy-MM-dd HH:mm:ss} ${LOG_LEVEL_PATTERN:-%5p} %m%n"
 
 feign:
-  hystrix:
+  circuitbreaker:
     enabled: true
+    alphanumeric-ids:
+      enabled: true
+resilience4j:
+  circuitbreaker:
+    instance:
+      CustomerClientgetCustomer:
+        minimumNumberOfCalls: 4
 management:
   endpoints:
     web:

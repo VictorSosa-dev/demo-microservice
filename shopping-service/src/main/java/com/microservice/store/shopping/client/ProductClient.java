@@ -10,12 +10,13 @@ import org.springframework.web.bind.annotation.RequestParam;
 import com.microservice.store.shopping.model.Product;
 
 @FeignClient(name = "product-service")
-@RequestMapping (value = "/products")
+@RequestMapping(value = "/products")
 public interface ProductClient {
-	
+
 	@GetMapping(value = "/{id}")
-    public ResponseEntity<Product> getProduct(@PathVariable("id") Long id);
-	
+	public ResponseEntity<Product> getProduct(@PathVariable("id") Long id);
+
 	@GetMapping(value = "/{id}/stock")
-    public ResponseEntity<Product> updateStockProduct(@PathVariable  Long id ,@RequestParam(name = "quantity", required = true) Double quantity);
+	public ResponseEntity<Product> updateStockProduct(@PathVariable Long id,
+			@RequestParam(name = "quantity", required = true) Double quantity);
 }
