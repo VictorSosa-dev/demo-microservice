@@ -26,6 +26,7 @@ public class InvoiceServiceImpl implements InvoiceService {
 
 	@Autowired
 	InvoiceItemsRepository invoiceItemsRepository;
+
 	@Autowired
 	CustomerClient customerClient;
 
@@ -75,8 +76,7 @@ public class InvoiceServiceImpl implements InvoiceService {
 		invoiceDB.setState("DELETED");
 		return invoiceRepository.save(invoiceDB);
 	}
-	
-	
+
 	@Override
 	public Invoice getInvoice(Long id) {
 

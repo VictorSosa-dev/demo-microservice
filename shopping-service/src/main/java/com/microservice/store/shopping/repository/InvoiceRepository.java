@@ -7,6 +7,7 @@ import com.microservice.store.shopping.entity.Invoice;
 import java.util.List;
 
 public interface InvoiceRepository extends JpaRepository<Invoice, Long> {
-    public List<Invoice> findByCustomerId(Long customerId );
-    public Invoice findByNumberInvoice(String numberInvoice);
+	public List<Invoice> findByCustomerId(Long customerId);
+
+	public Invoice findByNumberInvoice(String numberInvoice);
 }

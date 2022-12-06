@@ -48,10 +48,9 @@ public class Invoice {
 	public void prePersist() {
 		this.createAt = new Date();
 	}
-	
-	//Don´t save in DB
+
+	// Don´t save in DB
 	@Transient
 	private Customer customer;
-	
 
 }
