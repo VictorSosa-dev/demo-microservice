@@ -6,7 +6,7 @@ spring:
       server:
         git:
           uri: https://github.com/VictorSosa-dev/demo-microservice
-          default-label: 08-circuit-breaker
+          default-label: 09-jwt
           skipSslValidation: true
           search-paths: config-data
   application:
