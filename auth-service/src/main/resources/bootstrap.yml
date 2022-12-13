@@ -7,7 +7,7 @@ spring:
       uri: http://localhost:8081
   boot:
     admin:
-      client: 
-        url: http://localhost:8086        
+      client:
+        url: http://localhost:8086
 jwt:
-  secret: gMQf10usnA
+    secret: gMQf10usnA

@@ -1,0 +1,2 @@
+INSERT INTO tbl_users (id, name, lastname, username, email,password) VALUES (1, 'Victor', 'Sosa', 'victor', 'victor@gmail.com', 'password');
+INSERT INTO tbl_users (id, name, lastname, username, email,password) VALUES (2, 'Julieta', 'Cisneroz', 'yuli', 'yuli@gmail.com', 'password2');
