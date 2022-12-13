@@ -1,4 +1,4 @@
-package com.microservice.store.auth.service.dto;
+package com.microservice.store.auth.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

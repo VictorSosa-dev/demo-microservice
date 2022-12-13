@@ -1,4 +1,4 @@
-package com.microservice.store.auth.service.service;
+package com.microservice.store.auth.service;
 
 import java.util.Optional;
 
@@ -6,11 +6,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
-import com.microservice.store.auth.service.dto.TokenDto;
-import com.microservice.store.auth.service.dto.UserDto;
-import com.microservice.store.auth.service.entity.User;
-import com.microservice.store.auth.service.repository.UserRepository;
-import com.microservice.store.auth.service.security.JwtProvider;
+import com.microservice.store.auth.dto.TokenDto;
+import com.microservice.store.auth.dto.UserDto;
+import com.microservice.store.auth.entity.User;
+import com.microservice.store.auth.repository.UserRepository;
+import com.microservice.store.auth.security.JwtProvider;
 
 @Service
 public class AuthUserService {
@@ -34,7 +34,7 @@ public class AuthUserService {
 				.name(userDto.getName())
 				.lastName(userDto.getLastName())
 				.email(userDto.getEmail())
-				.username(userDto.getUsername())
+				.userName(userDto.getUsername())
 				.password(password).build();
 		
 		return userRepository.save(authUser);

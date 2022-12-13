@@ -1,4 +1,4 @@
-package com.microservice.store.auth.service.security;
+package com.microservice.store.auth.security;
 
 import java.util.Base64;
 import java.util.Date;
@@ -10,7 +10,7 @@ import javax.annotation.PostConstruct;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
-import com.microservice.store.auth.service.entity.User;
+import com.microservice.store.auth.entity.User;
 
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
@@ -29,7 +29,7 @@ public class JwtProvider {
 	public String createToken(User user) {
 		Map<String, Object> claims = new HashMap<>();
 		
-		claims = Jwts.claims().setSubject(user.getUsername());
+		claims = Jwts.claims().setSubject(user.getUserName());
 		claims.put("id",user.getId());
 		claims.put("email", user.getEmail());
 		Date now = new Date();

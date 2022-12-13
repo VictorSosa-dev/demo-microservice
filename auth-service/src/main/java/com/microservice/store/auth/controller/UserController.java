@@ -1,4 +1,4 @@
-package com.microservice.store.auth.service.controller;
+package com.microservice.store.auth.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -8,10 +8,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.microservice.store.auth.service.dto.TokenDto;
-import com.microservice.store.auth.service.dto.UserDto;
-import com.microservice.store.auth.service.entity.User;
-import com.microservice.store.auth.service.service.AuthUserService;
+import com.microservice.store.auth.dto.TokenDto;
+import com.microservice.store.auth.dto.UserDto;
+import com.microservice.store.auth.entity.User;
+import com.microservice.store.auth.service.AuthUserService;
 
 @RestController
 @RequestMapping("/auth")

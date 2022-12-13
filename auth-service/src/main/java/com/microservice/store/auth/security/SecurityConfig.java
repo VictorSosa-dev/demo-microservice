@@ -1,4 +1,4 @@
-package com.microservice.store.auth.service.security;
+package com.microservice.store.auth.security;
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
