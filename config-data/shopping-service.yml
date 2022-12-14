@@ -61,7 +61,7 @@ resilience4j:
         minimumNumberOfCalls: 4
 management:
   security:
-    enabled: false
+    enabled: true
   endpoints:
     web:
       exposure:

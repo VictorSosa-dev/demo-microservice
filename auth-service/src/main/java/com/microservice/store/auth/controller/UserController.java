@@ -38,7 +38,7 @@ public class UserController {
 	}
 
 	@PostMapping("/singup")
-	public ResponseEntity<User> singUp(@RequestBody UserDto userDto){
+	public ResponseEntity<User> signup(@RequestBody UserDto userDto){
 		User user = authUserService.save(userDto);
 		
 		if(user == null )

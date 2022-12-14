@@ -20,6 +20,8 @@ spring:
   h2:
     console:
       enabled: true
+      settings:
+        web-allow-others: true
   # ===============================
   # DB
   # ===============================
@@ -49,7 +51,7 @@ logging:
     enabled: true
 management:
   security:
-    enabled: false
+    enabled: true
   endpoints:
     web:
       exposure:
